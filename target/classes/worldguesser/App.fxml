@@ -1,0 +1,9 @@
+<VBox spacing="10">
+    <Label fx:id="targetLabel" text="Finn: Norge"/>
+    <Label fx:id="scoreLabel" text="Score: 0"/>
+    
+    <Pane fx:id="map"/>
+    
+    <Button text="New Game" onAction="#handleNewGame"/>
+    <Button text="Save Score" onAction="#handleSave"/>
+</VBox>
