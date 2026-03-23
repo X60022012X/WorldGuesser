@@ -9,17 +9,30 @@ public class Country {
 
     private String name;
     private List<Shape> shapes = new ArrayList<>();
+    private List<String> ids = new ArrayList<>();
 
     public Country(String name) {
         this.name = name;
     }
 
-    public void addShape(Shape shape) {
+    public void addShape(String id, Shape shape) {
+        ids.add(id);
         shapes.add(shape);
     }
 
     public String getName() {
         return name;
+    }
+
+    public boolean checkClick(String clickedId) {
+
+        if (ids.contains(clickedId)) {
+            setCorrect();
+            return true;
+        } else {
+            setWrong();
+            return false;
+        }
     }
 
     public void setCorrect() {
