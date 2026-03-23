@@ -1,5 +1,8 @@
 package worldguesser;
 
+import javafx.scene.paint.Color;
+import javafx.scene.shape.SVGPath;
+
 public class Country {
 
     private String name;
@@ -8,6 +11,14 @@ public class Country {
     public Country(String name, SVGPath shape) {
         this.name = name;
         this.shape = shape;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public SVGPath getShape() {
+        return shape;
     }
 
     public void setCorrect() {
@@ -19,10 +30,6 @@ public class Country {
     }
 
     public void reset() {
-        shape.setFill(Color.GRAY);
-    }
-
-    public String getName() {
-        return name;
+        shape.setFill(Color.LIGHTGRAY);
     }
 }
