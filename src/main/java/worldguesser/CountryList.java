@@ -3,7 +3,7 @@ package worldguesser;
 import java.util.Map;
 
 public class CountryList {
-
+    
     public static final Map<String, String[]> idsByCountry = Map.ofEntries(
         Map.entry("Denmark", new String[] {"gl", "dk", "fo"}),
         Map.entry("Iceland", new String[] {"is"}),
@@ -42,7 +42,7 @@ public class CountryList {
         Map.entry("Spain", new String[] {"es"}),
         Map.entry("Portugal", new String[] {"pt"}),
         Map.entry("Cyprus", new String[] {"nc"}),
-        Map.entry("Germany", new String[] {"de"}),
+        Map.entry("Germany", new String[] {"path5816"}),
         Map.entry("France", new String[] {"fr"}),
         Map.entry("Luxembourg", new String[] {"path5742"}),
         Map.entry("Malta", new String[] {"mt"}),
@@ -98,7 +98,7 @@ public class CountryList {
         Map.entry("es", "Spain"),
         Map.entry("pt", "Portugal"),
         Map.entry("nc", "Cyprus"),
-        Map.entry("de", "Germany"),
+        Map.entry("path5816", "Germany"),
         Map.entry("fr", "France"),
         Map.entry("path5742", "Luxembourg"),
         Map.entry("mt", "Malta"),
