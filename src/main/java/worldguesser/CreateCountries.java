@@ -7,8 +7,7 @@ import javafx.scene.shape.Shape;
 public class CreateCountries {
     private ArrayList<Country> countries;
     
-    public void countries(Map<String, String[]> idsByCountry){
-
+    public ArrayList<Country> countries(Map<String, String[]> idsByCountry){
         
         for (Map.Entry<String, String[]> entry : idsByCountry.entrySet()) {
             String name = entry.getKey();
@@ -22,5 +21,7 @@ public class CreateCountries {
 
             countries.add(new Country(name, shapes));
         }
+
+        return countries;
     }
 }
