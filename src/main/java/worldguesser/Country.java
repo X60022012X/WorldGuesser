@@ -1,35 +1,42 @@
 package worldguesser;
 
+import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.SVGPath;
+import javafx.scene.shape.Shape;
 
 public class Country {
 
     private String name;
-    private SVGPath shape;
+    private List<Shape> shapes = new ArrayList<>();
 
-    public Country(String name, SVGPath shape) {
+    public Country(String name) {
         this.name = name;
-        this.shape = shape;
+    }
+
+    public void addShape(Shape shape) {
+        shapes.add(shape);
     }
 
     public String getName() {
         return name;
     }
 
-    public SVGPath getShape() {
-        return shape;
-    }
-
     public void setCorrect() {
-        shape.setFill(Color.GREEN);
+        for (Shape s : shapes) {
+            s.setFill(Color.GREEN);
+        }
     }
 
     public void setWrong() {
-        shape.setFill(Color.RED);
+        for (Shape s : shapes) {
+            s.setFill(Color.RED);
+        }
     }
 
     public void reset() {
-        shape.setFill(Color.LIGHTGRAY);
+        for (Shape s : shapes) {
+            s.setFill(Color.LIGHTGRAY);
+        }
     }
 }
