@@ -1,20 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="worldguesser.GameController"
             prefWidth="500.0"
-            prefHeight="750.0">
+            prefHeight="750.0"
+            style="-fx-background-color: #efcf93;">
 
     <children>
+        <VBox prefWidth="500.0"
+              prefHeight="750.0"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0">
 
-        <Pane fx:id="mapPane"
-              prefWidth="500.0"
-              prefHeight="750.0" />
-        
+            <!-- Top bar -->
+            <HBox prefHeight="55.0"
+                  alignment="CENTER_LEFT"
+                  spacing="12.0"
+                  style="-fx-background-color: #efcf93;">
+                <padding>
+                    <Insets top="10" right="12" bottom="10" left="18"/>
+                </padding>
+
+                <Label fx:id="targetCountryLabel"
+                       text="Find: Norway"
+                       style="-fx-font-size: 22px; -fx-text-fill: black;" />
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button fx:id="resetButton"
+                        text="Reset"
+                        mnemonicParsing="false"
+                        focusTraversable="false"
+                        prefWidth="85.0"
+                        prefHeight="38.0"
+                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;" />
+
+                <Button fx:id="homeButton"
+                        text="Home"
+                        mnemonicParsing="false"
+                        focusTraversable="false"
+                        prefWidth="85.0"
+                        prefHeight="38.0"
+                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;" />
+            </HBox>
+
+            <!-- Map area -->
+            <Pane fx:id="mapPane"
+                  prefWidth="500.0"
+                  prefHeight="320.0"
+                  style="-fx-background-color: #b3b3b3;" />
+
+            <!-- Bottom info area -->
+            <VBox spacing="18.0"
+                  prefWidth="500.0"
+                  VBox.vgrow="ALWAYS"
+                  style="-fx-background-color: #efcf93;">
+                <padding>
+                    <Insets top="14" right="18" bottom="20" left="18"/>
+                </padding>
+
+                <!-- Time / attempts row -->
+                <HBox alignment="CENTER_LEFT">
+                    <Label fx:id="timeLabel"
+                           text="Time: 23.5s"
+                           style="-fx-font-size: 22px;" />
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Label fx:id="attemptsLabel"
+                           text="Attempts left: 3"
+                           style="-fx-font-size: 22px;" />
+                </HBox>
+
+                <!-- Result section -->
+                <VBox spacing="6.0">
+                    <Label text="Result:"
+                           style="-fx-font-size: 22px;" />
+
+                    <Pane prefHeight="2.0"
+                          maxWidth="385.0"
+                          style="-fx-background-color: black;" />
+
+                    <Label fx:id="timeSpentLabel"
+                           text="Time spent: 40s"
+                           style="-fx-font-size: 18px;" />
+
+                    <Label fx:id="incorrectsLabel"
+                           text="Incorrects: 15s"
+                           style="-fx-font-size: 18px;" />
+
+                    <Label fx:id="totalTimeLabel"
+                           text="Total time: 55s"
+                           style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                </VBox>
+
+                <Region VBox.vgrow="ALWAYS" />
+
+                <!-- Bottom button -->
+                <HBox alignment="CENTER">
+                    <Button fx:id="tryAgainButton"
+                            text="Try Again"
+                            mnemonicParsing="false"
+                            focusTraversable="false"
+                            prefWidth="170.0"
+                            prefHeight="52.0"
+                            style="-fx-font-size: 18px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;" />
+                </HBox>
+            </VBox>
+
+        </VBox>
     </children>
-    
 </AnchorPane>
