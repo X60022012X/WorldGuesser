@@ -12,7 +12,7 @@ public class MainController {
 
     @FXML
     private void showGame(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/worldguesser/WorldGuesser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/worldguesser/game.fxml"));
         Scene scene = new Scene(loader.load());
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

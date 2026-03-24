@@ -7,8 +7,8 @@
       fx:controller="worldguesser.HighscoreController"
       alignment="CENTER"
       spacing="20"
-      prefWidth="1000"
-      prefHeight="800">
+      prefWidth="500"
+      prefHeight="700">
 
     <children>
         <TextArea fx:id="highscoreArea"

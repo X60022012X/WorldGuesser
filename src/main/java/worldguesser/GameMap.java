@@ -3,7 +3,6 @@ package worldguesser;
 import java.util.ArrayList;
 import java.util.Map;
 import javafx.scene.Group;
-
 import javafx.scene.shape.Shape;
 
 public class GameMap {
@@ -21,6 +20,10 @@ public class GameMap {
 
         mapGroup = reader.getGroup();
         registerClicks();
+
+        if (mapGroup instanceof Group group) {
+            System.out.println("group children = " + group.getChildren().size());
+        }
     }
 
     public ArrayList<Country> getCountries() {
