@@ -15,11 +15,16 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
+import javafx.animation.Timeline;
+import javafx.animation.KeyFrame;
+import javafx.util.Duration;
 
 public class GameController {
 
     private WorldGuesser game;
     private GameMap gameMap;
+    private Timeline timerUpdater;
+    private Timer timer;   
 
     @FXML
     private Pane mapPane;
@@ -46,6 +51,15 @@ public class GameController {
     public void initialize() {
         gameMap = new GameMap();
         game = new WorldGuesser(gameMap.getCountries());
+        timer = new Timer();
+        timer.start();
+
+        timerUpdater = new Timeline(
+            new KeyFrame(Duration.seconds(0.1), e -> updateUI())
+        );
+
+        timerUpdater.setCycleCount(Timeline.INDEFINITE);
+        timerUpdater.play();
 
         Group mapGroup = gameMap.getMapGroup();
 
@@ -64,7 +78,7 @@ public class GameController {
         fitMapToPane(mapGroup);
 
         registerClicks();
-        updateUI(game.getCurrentCountry().getName());
+        updateUI();
     }
 
     private void registerClicks() {
@@ -82,20 +96,21 @@ public class GameController {
 
         if (finished) {
             System.out.println("Game finished!");
-            updateUI("");
-        } else{
-            updateUI(game.getCurrentCountry().getName());
+            timer.stop();
+            timerUpdater.stop();
         }
+
+        updateUI();
     }
 
-    private void updateUI(String target) {
-        targetCountryLabel.setText("Find: " + target);
+    private void updateUI() {
+        targetCountryLabel.setText("Find: " + game.getCurrentCountry().getName());
         attemptsLabel.setText("Attempts left: " + game.getAttempts());
         incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
-
-        timeLabel.setText("Time: " + String.format("%.1f s", elapsedSeconds));
-        timeSpentLabel.setText("Time spent: " + String.format("%.1f s", elapsedSeconds));
-        totalTimeLabel.setText("Total time: " + String.format("%.1f s", elapsedSeconds));
+        double timeSpent = timer.getTimeSeconds();
+        timeSpentLabel.setText(String.format("Time spent: %.1f s", timeSpent));
+        double totalTime = timeSpent + game.getMisclicks() * 5;
+        totalTimeLabel.setText(String.format("Total time: %.1f s", totalTime));
     }
 
     private void fitMapToPane(Group mapGroup) {
@@ -140,7 +155,7 @@ public class GameController {
     @FXML
     private void resetGame(ActionEvent event) {
         game = new WorldGuesser(gameMap.getCountries());
-        updateUI(game.getCurrentCountry().getName());
+        updateUI();
     }
 
     @FXML
