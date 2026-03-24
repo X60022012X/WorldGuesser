@@ -109,7 +109,7 @@
                            text="Time spent: 40s"
                            style="-fx-font-size: 18px;" />
 
-                    <Label fx:id="incorrectsLabel"
+                    <Label fx:id="incorrectLabel"
                            text="Incorrects: 15s"
                            style="-fx-font-size: 18px;" />
 

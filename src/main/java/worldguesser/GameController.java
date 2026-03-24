@@ -60,7 +60,7 @@ public class GameController {
         scoreStorage = new ScoreStorage("allScores.csv");
 
         timerUpdater = new Timeline(
-            new KeyFrame(Duration.seconds(0.1), e -> updateUI())
+            new KeyFrame(Duration.seconds(0.1), e -> updateUI(game.getCurrentCountry().getName()))
         );
 
         timerUpdater.setCycleCount(Timeline.INDEFINITE);
@@ -83,7 +83,7 @@ public class GameController {
         fitMapToPane(mapGroup);
 
         registerClicks();
-        updateUI();
+        updateUI(game.getCurrentCountry().getName());
     }
 
     private void registerClicks() {
@@ -105,13 +105,14 @@ public class GameController {
             timerUpdater.stop();
             Score score = new Score(timer.getTimeSeconds(), game.getMisclicks());
             scoreStorage.saveScore(score);
+            updateUI("");
+        } else{
+            updateUI(game.getCurrentCountry().getName());
         }
-
-        updateUI();
     }
 
-    private void updateUI() {
-        targetCountryLabel.setText("Find: " + game.getCurrentCountry().getName());
+    private void updateUI(String country) {
+        targetCountryLabel.setText("Find: " + country);
         attemptsLabel.setText("Attempts left: " + game.getAttempts());
         incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
         countriesLabel.setText("Countries: " + (40 - game.getRemainingCountries()) + "/40" );
@@ -166,7 +167,7 @@ public class GameController {
     @FXML
     private void resetGame(ActionEvent event) {
         game = new WorldGuesser(gameMap.getCountries());
-        updateUI();
+        updateUI(game.getCurrentCountry().getName());
     }
 
     @FXML
