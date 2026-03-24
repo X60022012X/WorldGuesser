@@ -59,7 +59,6 @@ public class ScoreStorage {
                 fiveBestScores.add(scores.get(i));
             }
         }
-
         return fiveBestScores;
     }  
 }

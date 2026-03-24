@@ -21,7 +21,6 @@ public class CreateCountries {
 
             countries.add(new Country(name, shapes.toArray(new Shape[0])));
         }
-
         return countries;
     }
 }

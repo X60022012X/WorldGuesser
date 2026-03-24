@@ -32,7 +32,7 @@ public class Country {
 
     public void reset() {
         for (Shape s : shapes) {
-            s.setFill(Color.LIGHTGRAY);
+            s.setFill(Color.BLACK);
         }
     }
 

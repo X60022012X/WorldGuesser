@@ -27,7 +27,7 @@ public class WorldGuesser {
 
         currentCountry = remainingCountries.get(index);
 
-        attempts = 0;
+        attempts = 3;
 
         System.out.println("Find: " + currentCountry.getName());
     }
@@ -58,9 +58,9 @@ public class WorldGuesser {
         clicked.setWrong();
 
         misclicks++;
-        attempts++;
+        attempts--;
 
-        if(attempts >= 3) {
+        if(attempts <= 0) {
             nextCountry();
         }
 
