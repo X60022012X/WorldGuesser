@@ -17,7 +17,7 @@ public class WorldGuesserApp extends Application {
 
         stage.setScene(
             new Scene(
-                FXMLLoader.load(getClass().getResource("/worldguesser/WorldGuesser.fxml"))
+                FXMLLoader.load(getClass().getResource("/worldguesser/main.fxml"))
             )
         );
 
