@@ -58,8 +58,8 @@
             <!-- Map area -->
             <Pane fx:id="mapPane"
                   prefWidth="500.0"
-                  prefHeight="320.0"
-                  style="-fx-background-color: #b3b3b3;" />
+                  prefHeight="380.0"
+                  style="-fx-background-color: LIGHTSKYBLUE;" />
 
             <!-- Bottom info area -->
             <VBox spacing="18.0"

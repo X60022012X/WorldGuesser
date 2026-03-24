@@ -9,57 +9,93 @@ import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
+import javafx.scene.shape.Rectangle;
 
 public class GameController {
 
     @FXML
     private Pane mapPane;
-    private GameMap gameMap;
 
+    @FXML
+    private Label targetCountryLabel;
+
+    @FXML
+    private Label timeLabel;
+
+    @FXML
+    private Label attemptsLabel;
+
+    @FXML
+    private Label timeSpentLabel;
+
+    @FXML
+    private Label incorrectsLabel;
+
+    @FXML
+    private Label totalTimeLabel;
+
+    private GameMap gameMap;
 
     @FXML
     public void initialize() {
-        mapPane.setStyle("-fx-background-color: LIGHTSKYBLUE;");
+        targetCountryLabel.setText("Find: Norway");
+        timeLabel.setText("Time: 23.5s");
+        attemptsLabel.setText("Attempts left: 3");
+        timeSpentLabel.setText("Time spent: 40s");
+        incorrectsLabel.setText("Incorrects: 15s");
+        totalTimeLabel.setText("Total time: 55s");
 
         gameMap = new GameMap();
-
         Group mapGroup = (Group) gameMap.getMapGroup();
+
+        mapPane.getChildren().clear();
         mapPane.getChildren().add(mapGroup);
+
+        Rectangle clip = new Rectangle();
+        clip.widthProperty().bind(mapPane.widthProperty());
+        clip.heightProperty().bind(mapPane.heightProperty());
+        mapPane.setClip(clip);
+
+        mapPane.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
+            fitMapToPane(mapGroup);
+        });
+
+        fitMapToPane(mapGroup);
+    }
+
+    private void fitMapToPane(Group mapGroup) {
+        double paneWidth = mapPane.getWidth();
+        double paneHeight = mapPane.getHeight();
+
+        if (paneWidth <= 0 || paneHeight <= 0) {
+            return;
+        }
 
         Bounds bounds = mapGroup.getBoundsInLocal();
         System.out.println("bounds = " + bounds);
-
-        double paneWidth = 500;
-        double paneHeight = 700;
 
         double scale = Math.min(
             paneWidth / bounds.getWidth(),
             paneHeight / bounds.getHeight()
         );
 
-        // Move map to (0,0)
-        mapGroup.setTranslateX(-bounds.getMinX());
-        mapGroup.setTranslateY(-bounds.getMinY());
+        scale *= 1.02;
 
-        // Scale from top-left
         mapGroup.getTransforms().clear();
-        mapGroup.getTransforms().add(
-            new javafx.scene.transform.Scale(scale, scale, 0, 0)
-        );
+        mapGroup.getTransforms().add(new Scale(scale, scale, 0, 0));
 
-        // 🔥 Center the map (new)
+        double offsetX = -bounds.getMinX() * scale;
+        double offsetY = -bounds.getMinY() * scale;
+
         double scaledWidth = bounds.getWidth() * scale;
         double scaledHeight = bounds.getHeight() * scale;
 
-        mapGroup.setTranslateX(
-            mapGroup.getTranslateX() + (paneWidth - scaledWidth) / 2
-        );
-
-        mapGroup.setTranslateY(
-            mapGroup.getTranslateY() + (paneHeight - scaledHeight) / 2
-        );
+        mapGroup.setTranslateX(offsetX + (paneWidth - scaledWidth) / 2);
+        mapGroup.setTranslateY(offsetY + (paneHeight - scaledHeight) / 2);
     }
 
     @FXML
@@ -69,5 +105,15 @@ public class GameController {
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+    }
+
+    @FXML
+    private void resetGame(ActionEvent event) {
+        System.out.println("Reset pressed");
+    }
+
+    @FXML
+    private void tryAgain(ActionEvent event) {
+        System.out.println("Try Again pressed");
     }
 }
