@@ -11,13 +11,15 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.transform.Scale;
-import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Scale;
+import javafx.stage.Stage;
 
 public class GameController {
+
     private WorldGuesser game;
+    private GameMap gameMap;
 
     @FXML
     private Pane mapPane;
@@ -40,13 +42,11 @@ public class GameController {
     @FXML
     private Label totalTimeLabel;
 
-    private GameMap gameMap;
-
     @FXML
     public void initialize() {
         gameMap = new GameMap();
         game = new WorldGuesser(gameMap.getCountries());
-        
+
         Group mapGroup = gameMap.getMapGroup();
 
         mapPane.getChildren().clear();
@@ -78,19 +78,27 @@ public class GameController {
     private void handleCountryClick(Country country) {
         System.out.println("Clicked: " + country.getName());
 
-        boolean correct = game.guess(country);
+        boolean finished = game.handleClick(country);
+
+        if (finished) {
+            System.out.println("Game finished!");
+        }
+
         updateUI();
     }
 
     private void updateUI() {
-        targetCountryLabel.setText("Find: " + game.getCurrentTarget().getName());
-        timeLabel.setText("Time: " + game.getCurrentRoundTime() + "s");
-        attemptsLabel.setText("Attempts left: " + game.getAttemptsLeft());
-        timeSpentLabel.setText("Time spent: " + game.getTimeSpent() + "s");
-        incorrectsLabel.setText("Incorrects: " + game.getIncorrectCount());
-        totalTimeLabel.setText("Total time: " + game.getTotalTime() + "s");
-    }
+        targetCountryLabel.setText("Find: " + game.getCurrentCountry().getName());
+        attemptsLabel.setText("Attempts left: " + game.getAttempts());
+        incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
 
+        long elapsedMillis = System.currentTimeMillis() - game.getStartTime();
+        double elapsedSeconds = elapsedMillis / 1000.0;
+
+        timeLabel.setText("Time: " + String.format("%.1f s", elapsedSeconds));
+        timeSpentLabel.setText("Time spent: " + String.format("%.1f s", elapsedSeconds));
+        totalTimeLabel.setText("Total time: " + String.format("%.1f s", elapsedSeconds));
+    }
 
     private void fitMapToPane(Group mapGroup) {
         double paneWidth = mapPane.getWidth();
@@ -101,7 +109,6 @@ public class GameController {
         }
 
         Bounds bounds = mapGroup.getBoundsInLocal();
-        System.out.println("bounds = " + bounds);
 
         double scale = Math.min(
             paneWidth / bounds.getWidth(),
@@ -134,7 +141,8 @@ public class GameController {
 
     @FXML
     private void resetGame(ActionEvent event) {
-        System.out.println("Reset pressed");
+        game = new WorldGuesser(gameMap.getCountries());
+        updateUI();
     }
 
     @FXML

@@ -21,17 +21,15 @@ public class WorldGuesser {
         currentCountry = remainingCountries.get(index);
         attempts = 3;
 
-        System.out.println("Find: " + currentCountry.getName());
+        System.out.println("Find: " + currentCountry.getName());  //REMOVE BEFORE FLIGHT
     }
 
     public boolean handleClick(Country clicked) {
 
-        // ignore clicks on finished countries
         if(!remainingCountries.contains(clicked)) {
             return false;
         }
 
-        // correct click
         if(clicked == currentCountry) {
 
             clicked.setCorrect();
