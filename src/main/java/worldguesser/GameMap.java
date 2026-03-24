@@ -20,6 +20,7 @@ public class GameMap {
 
         mapGroup = reader.getGroup();
         countries = creater.createCountries(CountryData.idsByCountry, idToShape);
+        registerClicks();
     }
 
     public ArrayList<Country> getCountries() {
@@ -29,6 +30,16 @@ public class GameMap {
     public Group getMapGroup() {
         return mapGroup;
     }
+
+    private void registerClicks() {
+    for (Country country : countries) {
+        for (Shape shape : country.getShapes()) {
+            shape.setOnMouseClicked(event -> {
+                System.out.println("Clicked: " + country.getName());
+            });
+        }
+    }
+}
 
     public static void main(String[] args) {
         try {
