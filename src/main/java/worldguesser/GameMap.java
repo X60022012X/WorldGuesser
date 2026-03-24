@@ -17,9 +17,9 @@ public class GameMap {
         reader = new SVGReader();
         CreateCountries creater = new CreateCountries();
         idToShape = reader.getIdToShape();
+        countries = creater.createCountries(CountryData.idsByCountry, idToShape);
 
         mapGroup = reader.getGroup();
-        countries = creater.createCountries(CountryData.idsByCountry, idToShape);
         registerClicks();
     }
 
@@ -32,14 +32,15 @@ public class GameMap {
     }
 
     private void registerClicks() {
-    for (Country country : countries) {
-        for (Shape shape : country.getShapes()) {
-            shape.setOnMouseClicked(event -> {
-                System.out.println("Clicked: " + country.getName());
-            });
+        for (Country country : countries) {
+            for (Shape shape : country.getShapes()) {
+                shape.setOnMouseClicked(event -> {
+                    System.out.println("Clicked: " + country.getName());
+                    country.setCorrect();
+                });
+            }
         }
     }
-}
 
     public static void main(String[] args) {
         try {
