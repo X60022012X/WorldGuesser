@@ -17,9 +17,7 @@ public class GameMap {
         CreateCountries creater = new CreateCountries();
         idToShape = reader.getIdToShape();
         countries = creater.createCountries(CountryData.idsByCountry, idToShape);
-
         mapGroup = reader.getGroup();
-        registerClicks();
     }
 
     public ArrayList<Country> getCountries() {
@@ -29,15 +27,4 @@ public class GameMap {
     public Group getMapGroup() {
         return mapGroup;
     }
-
-    private void registerClicks() {
-        for (Country country : countries) {
-            for (Shape shape : country.getShapes()) {
-                shape.setOnMouseClicked(event -> {
-                    System.out.println("Clicked: " + country.getName());
-                });
-            }
-        }
-    }
 }
-
