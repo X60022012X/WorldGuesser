@@ -14,8 +14,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.transform.Scale;
 import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 public class GameController {
+    private WorldGuesser game;
 
     @FXML
     private Pane mapPane;
@@ -42,15 +44,10 @@ public class GameController {
 
     @FXML
     public void initialize() {
-        targetCountryLabel.setText("Find: Norway");
-        timeLabel.setText("Time: 23.5s");
-        attemptsLabel.setText("Attempts left: 3");
-        timeSpentLabel.setText("Time spent: 40s");
-        incorrectsLabel.setText("Incorrects: 15s");
-        totalTimeLabel.setText("Total time: 55s");
-
         gameMap = new GameMap();
-        Group mapGroup = (Group) gameMap.getMapGroup();
+        game = new WorldGuesser(gameMap.getCountries());
+        
+        Group mapGroup = gameMap.getMapGroup();
 
         mapPane.getChildren().clear();
         mapPane.getChildren().add(mapGroup);
@@ -65,7 +62,35 @@ public class GameController {
         });
 
         fitMapToPane(mapGroup);
+
+        registerClicks();
+        updateUI();
     }
+
+    private void registerClicks() {
+        for (Country country : gameMap.getCountries()) {
+            for (Shape shape : country.getShapes()) {
+                shape.setOnMouseClicked(event -> handleCountryClick(country));
+            }
+        }
+    }
+
+    private void handleCountryClick(Country country) {
+        System.out.println("Clicked: " + country.getName());
+
+        boolean correct = game.guess(country);
+        updateUI();
+    }
+
+    private void updateUI() {
+        targetCountryLabel.setText("Find: " + game.getCurrentTarget().getName());
+        timeLabel.setText("Time: " + game.getCurrentRoundTime() + "s");
+        attemptsLabel.setText("Attempts left: " + game.getAttemptsLeft());
+        timeSpentLabel.setText("Time spent: " + game.getTimeSpent() + "s");
+        incorrectsLabel.setText("Incorrects: " + game.getIncorrectCount());
+        totalTimeLabel.setText("Total time: " + game.getTotalTime() + "s");
+    }
+
 
     private void fitMapToPane(Group mapGroup) {
         double paneWidth = mapPane.getWidth();
