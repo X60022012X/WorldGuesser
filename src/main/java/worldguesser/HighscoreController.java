@@ -1,9 +1,6 @@
 package worldguesser;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -15,24 +12,22 @@ public class HighscoreController {
 
     @FXML
     public void initialize() {
-        loadHighscores();
-    }
 
-    private void loadHighscores() {
-        StringBuilder content = new StringBuilder();
+        ScoreStorage storage = new ScoreStorage("allScores.csv");
 
-        try (InputStream is = getClass().getResourceAsStream("/worldguesser/highscores.txt");
-             BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
+        ArrayList<Integer> scores = storage.topFiveScores();
 
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
-            }
+        StringBuilder text = new StringBuilder();
+        text.append("Best times\n\n");
 
-            highscoreArea.setText(content.toString());
-
-        } catch (IOException | NullPointerException e) {
-            highscoreArea.setText("Could not load highscores.");
+        for (int i = 0; i < scores.size(); i++) {
+            text.append((i + 1) + ". " + scores.get(i) + " s\n");
         }
+
+        if(scores.isEmpty()) {
+            text.append("No scores yet.");
+        }
+
+        highscoreArea.setText(text.toString());
     }
 }
