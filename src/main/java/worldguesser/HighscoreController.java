@@ -18,16 +18,15 @@ public class HighscoreController {
         ArrayList<Integer> scores = storage.topFiveScores();
 
         StringBuilder text = new StringBuilder();
-        text.append("Best times\n\n");
-
-        for (int i = 0; i < scores.size(); i++) {
-            text.append((i + 1) + ". " + scores.get(i) + " s\n");
-        }
-
         if(scores.isEmpty()) {
             text.append("No scores yet.");
-        }
+        } else {
+            text.append("Best times\n\n");
 
+            for (int i = 0; i < scores.size(); i++) {
+                text.append((i + 1) + ". " + scores.get(i) + " s\n");
+            }
+        }
         highscoreArea.setText(text.toString());
     }
 }
