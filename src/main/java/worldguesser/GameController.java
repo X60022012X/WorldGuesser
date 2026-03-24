@@ -167,6 +167,9 @@ public class GameController {
     @FXML
     private void resetGame(ActionEvent event) {
         game = new WorldGuesser(gameMap.getCountries());
+        for (Country country : gameMap.getCountries()) {
+            country.reset();
+        }
         timer = new Timer();
         timer.start();
         updateUI(game.getCurrentCountry().getName());
