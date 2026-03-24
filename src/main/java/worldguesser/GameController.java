@@ -103,7 +103,7 @@ public class GameController {
             System.out.println("Game finished!");
             timer.stop();
             timerUpdater.stop();
-            Score score = new Score(timer.getTimeSeconds(), game.getMisclicks());
+            Score score = new Score(Math.round(timer.getTimeSeconds()*10)/10.0, game.getMisclicks());
             scoreStorage.saveScore(score);
             updateUI("");
         } else{
