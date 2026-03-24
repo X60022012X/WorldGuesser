@@ -111,9 +111,12 @@ public class GameController {
         targetCountryLabel.setText("Find: " + game.getCurrentCountry().getName());
         attemptsLabel.setText("Attempts left: " + game.getAttempts());
         incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
+
         double timeSpent = timer.getTimeSeconds();
-        timeSpentLabel.setText(String.format("Time spent: %.1f s", timeSpent));
+        timeLabel.setText(String.format("Time: %.1f s", timeSpent));
+
         double totalTime = timeSpent + game.getMisclicks() * 5;
+        timeSpentLabel.setText(String.format("Time spent: %.1f s", timeSpent));
         totalTimeLabel.setText(String.format("Total time: %.1f s", totalTime));
     }
 
