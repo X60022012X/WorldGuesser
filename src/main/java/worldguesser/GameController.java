@@ -64,7 +64,7 @@ public class GameController {
         fitMapToPane(mapGroup);
 
         registerClicks();
-        updateUI();
+        updateUI(game.getCurrentCountry().getName());
     }
 
     private void registerClicks() {
@@ -82,13 +82,14 @@ public class GameController {
 
         if (finished) {
             System.out.println("Game finished!");
+            updateUI("");
+        } else{
+            updateUI(game.getCurrentCountry().getName());
         }
-
-        updateUI();
     }
 
-    private void updateUI() {
-        targetCountryLabel.setText("Find: " + game.getCurrentCountry().getName());
+    private void updateUI(String target) {
+        targetCountryLabel.setText("Find: " + target);
         attemptsLabel.setText("Attempts left: " + game.getAttempts());
         incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
 
@@ -142,7 +143,7 @@ public class GameController {
     @FXML
     private void resetGame(ActionEvent event) {
         game = new WorldGuesser(gameMap.getCountries());
-        updateUI();
+        updateUI(game.getCurrentCountry().getName());
     }
 
     @FXML

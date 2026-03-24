@@ -8,7 +8,6 @@ public class WorldGuesser {
     private Country currentCountry;
     private int attempts;
     private int misclicks;
-    private long startTime;
 
     public WorldGuesser(ArrayList<Country> countries) {
         remainingCountries = new ArrayList<>(countries);
@@ -37,6 +36,8 @@ public class WorldGuesser {
             remainingCountries.remove(clicked);
 
             if(remainingCountries.isEmpty()) {
+                currentCountry = null;
+                endTime = System.currentTimeMillis();
                 return true;
             }
 
@@ -55,6 +56,11 @@ public class WorldGuesser {
         }
 
         return false;
+    }
+
+    public double getElapsedTimeSeconds() {
+        long end = (endTime != null) ? endTime : System.currentTimeMillis();
+        return (end - startTime) / 1000.0;
     }
 
     public int getMisclicks() {
