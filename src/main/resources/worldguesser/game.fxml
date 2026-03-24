@@ -52,7 +52,8 @@
                         focusTraversable="false"
                         prefWidth="85.0"
                         prefHeight="38.0"
-                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;" />
+                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;"
+                        onAction="#goBack" />
             </HBox>
 
             <!-- Map area -->
