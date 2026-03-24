@@ -2,9 +2,9 @@ package worldguesser;
 
 public class Score {
 
-    private int totalSeconds;
-    private int timeSeconds;
-    private int misclicks;
+    private final int totalSeconds;
+    private final int timeSeconds;
+    private final int misclicks;
 
     public Score(int timeSeconds, int misclicks) {
         this.timeSeconds = timeSeconds;
