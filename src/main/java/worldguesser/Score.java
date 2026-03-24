@@ -3,12 +3,8 @@ package worldguesser;
 public class Score {
 
     private int totalSeconds;
-    private int timeSeconds;
-    private int misclicks;
 
     public Score(int timeSeconds, int misclicks) {
-        this.timeSeconds = timeSeconds;
-        this.misclicks = misclicks;
         this.totalSeconds = timeSeconds + misclicks * 5;
     }
 
