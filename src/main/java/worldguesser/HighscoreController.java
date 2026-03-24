@@ -15,7 +15,7 @@ public class HighscoreController {
 
         ScoreStorage storage = new ScoreStorage("allScores.csv");
 
-        ArrayList<Integer> scores = storage.topFiveScores();
+        ArrayList<Double> scores = storage.topFiveScores();
 
         StringBuilder text = new StringBuilder();
         if(scores.isEmpty()) {

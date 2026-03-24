@@ -24,9 +24,9 @@ public class ScoreStorage {
         }
     }
 
-    public ArrayList<Integer> topFiveScores() {
+    public ArrayList<Double> topFiveScores() {
 
-        ArrayList<Integer> scores = new ArrayList<>();
+        ArrayList<Double> scores = new ArrayList<>();
 
         try {
             Scanner scanner = new Scanner(new File(file));
@@ -38,7 +38,7 @@ public class ScoreStorage {
                 }
                 String[] parts = line.split(",");
 
-                int totalSeconds = Integer.valueOf(parts[0]);
+                double totalSeconds = Double.valueOf(parts[0]);
 
                 scores.add(totalSeconds);
             }
@@ -50,7 +50,7 @@ public class ScoreStorage {
 
         Collections.sort(scores);
 
-        ArrayList<Integer> fiveBestScores = new ArrayList<>();
+        ArrayList<Double> fiveBestScores = new ArrayList<>();
 
         if (scores.size() <= 5) {
             fiveBestScores = new ArrayList<>(scores);
