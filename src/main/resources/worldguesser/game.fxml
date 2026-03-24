@@ -70,7 +70,20 @@
                     <Insets top="14" right="18" bottom="20" left="18"/>
                 </padding>
 
-                <!-- Time / attempts row -->
+                <!-- Attempts / countries row -->
+                <HBox alignment="CENTER_LEFT">
+                    <Label fx:id="attemptsLabel"
+                           text="Attempts: 3"
+                           style="-fx-font-size: 22px;" />
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Label fx:id="countriesLabel"
+                           text="Countries: 3/40"
+                           style="-fx-font-size: 22px;" />
+                </HBox>
+
+                <!-- Time / incorrects row -->
                 <HBox alignment="CENTER_LEFT">
                     <Label fx:id="timeLabel"
                            text="Time: 23.5s"
@@ -78,8 +91,8 @@
 
                     <Region HBox.hgrow="ALWAYS" />
 
-                    <Label fx:id="attemptsLabel"
-                           text="Attempts left: 3"
+                    <Label fx:id="incorrectsLabel"
+                           text="Incorrects: 9"
                            style="-fx-font-size: 22px;" />
                 </HBox>
 
