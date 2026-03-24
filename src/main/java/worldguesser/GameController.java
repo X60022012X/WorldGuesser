@@ -24,7 +24,8 @@ public class GameController {
     private WorldGuesser game;
     private GameMap gameMap;
     private Timeline timerUpdater;
-    private Timer timer;   
+    private Timer timer;
+    private ScoreStorage scoreStorage;   
 
     @FXML
     private Pane mapPane;
@@ -53,6 +54,7 @@ public class GameController {
         game = new WorldGuesser(gameMap.getCountries());
         timer = new Timer();
         timer.start();
+        scoreStorage = new ScoreStorage("allScores.csv");
 
         timerUpdater = new Timeline(
             new KeyFrame(Duration.seconds(0.1), e -> updateUI())
@@ -98,6 +100,8 @@ public class GameController {
             System.out.println("Game finished!");
             timer.stop();
             timerUpdater.stop();
+            Score score = new Score(timer.getTimeSeconds(), game.getMisclicks());
+            scoreStorage.saveScore(score);
         }
 
         updateUI();
