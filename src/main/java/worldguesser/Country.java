@@ -13,6 +13,11 @@ public class Country {
         this.shapes = shapes;
     }
 
+    @Override
+    public String toString(){
+        return name;
+    }
+
     public void setCorrect() {
         for (Shape s : shapes) {
             s.setFill(Color.GREEN);

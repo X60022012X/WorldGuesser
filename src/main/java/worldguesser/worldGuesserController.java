@@ -1,5 +1,5 @@
 package worldguesser;
 
-public class worldGuesserController {
+public class WorldGuesserController {
     
 }

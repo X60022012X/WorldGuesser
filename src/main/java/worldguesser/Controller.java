@@ -15,9 +15,9 @@ public class Controller {
 
         gameMap = new GameMap();
 
-        for (String countryName : CountryList.idsByCountry.keySet()) {
+        for (String countryName : CountryData.idsByCountry.keySet()) {
 
-            String[] ids = CountryList.idsByCountry.get(countryName);
+            String[] ids = CountryData.idsByCountry.get(countryName);
             Shape[] shapes = new Shape[ids.length];
 
             for (int i = 0; i < ids.length; i++) {

@@ -1,5 +1,5 @@
 package worldguesser;
 
-public class worldGuesserApp {
+public class WorldGuesserApp {
     
 }
