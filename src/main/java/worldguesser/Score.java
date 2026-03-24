@@ -1,7 +1,7 @@
 package worldguesser;
 
-public class Score implements Comparable<Score> {
-    
+public class Score {
+
     private int totalSeconds;
     private int timeSeconds;
     private int misclicks;
@@ -16,8 +16,16 @@ public class Score implements Comparable<Score> {
         return totalSeconds;
     }
 
+    public int getTimeSeconds() {
+        return timeSeconds;
+    }
+
+    public int getMisclicks() {
+        return misclicks;
+    }
+
     @Override
-    public int compareTo(Score other) {
-        return Integer.compare(this.totalSeconds, other.totalSeconds);
+    public String toString() {
+        return totalSeconds + "," + timeSeconds + "," + misclicks;
     }
 }
