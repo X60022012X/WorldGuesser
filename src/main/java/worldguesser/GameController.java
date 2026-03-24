@@ -93,9 +93,6 @@ public class GameController {
         attemptsLabel.setText("Attempts left: " + game.getAttempts());
         incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
 
-        long elapsedMillis = System.currentTimeMillis() - game.getStartTime();
-        double elapsedSeconds = elapsedMillis / 1000.0;
-
         timeLabel.setText("Time: " + String.format("%.1f s", elapsedSeconds));
         timeSpentLabel.setText("Time spent: " + String.format("%.1f s", elapsedSeconds));
         totalTimeLabel.setText("Total time: " + String.format("%.1f s", elapsedSeconds));

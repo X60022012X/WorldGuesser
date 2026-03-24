@@ -11,7 +11,6 @@ public class WorldGuesser {
 
     public WorldGuesser(ArrayList<Country> countries) {
         remainingCountries = new ArrayList<>(countries);
-        startTime = System.currentTimeMillis();
         nextCountry();
     }
 
@@ -37,7 +36,6 @@ public class WorldGuesser {
 
             if(remainingCountries.isEmpty()) {
                 currentCountry = null;
-                endTime = System.currentTimeMillis();
                 return true;
             }
 
@@ -58,17 +56,9 @@ public class WorldGuesser {
         return false;
     }
 
-    public double getElapsedTimeSeconds() {
-        long end = (endTime != null) ? endTime : System.currentTimeMillis();
-        return (end - startTime) / 1000.0;
-    }
 
     public int getMisclicks() {
         return misclicks;
-    }
-
-    public long getStartTime() {
-        return startTime;
     }
 
     public int getAttempts() {
