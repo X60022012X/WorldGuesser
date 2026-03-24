@@ -1,4 +1,4 @@
-package worldguesser;
+package worldguesser.storage;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.Pane;
