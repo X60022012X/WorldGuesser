@@ -2,21 +2,21 @@ package worldguesser;
 
 public class Score {
 
-    private final int totalSeconds;
-    private final int timeSeconds;
+    private final double totalSeconds;
+    private final double timeSeconds;
     private final int misclicks;
 
-    public Score(int timeSeconds, int misclicks) {
+    public Score(double timeSeconds, int misclicks) {
         this.timeSeconds = timeSeconds;
         this.misclicks = misclicks;
         this.totalSeconds = timeSeconds + misclicks * 5;
     }
 
-    public int getTotalSeconds() {
+    public double getTotalSeconds() {
         return totalSeconds;
     }
 
-    public int getTimeSeconds() {
+    public double getTimeSeconds() {
         return timeSeconds;
     }
 
