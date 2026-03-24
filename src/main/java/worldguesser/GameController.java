@@ -16,20 +16,26 @@ public class GameController {
 
     @FXML
     private Pane mapPane;
-    private GameMap gameMap;
 
+    private GameMap gameMap;
+    private WorldGuesser worldGuesser;
 
     @FXML
     public void initialize() {
+
         mapPane.setStyle("-fx-background-color: LIGHTSKYBLUE;");
 
-        gameMap = new GameMap();
+        worldGuesser = new WorldGuesser();
 
-        Group mapGroup = (Group) gameMap.getMapGroup();
+        gameMap = new GameMap(worldGuesser);
+
+        worldGuesser.startGame(gameMap.getCountries());
+
+        Group mapGroup = gameMap.getMapGroup();
+
         mapPane.getChildren().add(mapGroup);
 
         Bounds bounds = mapGroup.getBoundsInLocal();
-        System.out.println("bounds = " + bounds);
 
         double paneWidth = 500;
         double paneHeight = 700;
@@ -39,17 +45,14 @@ public class GameController {
             paneHeight / bounds.getHeight()
         );
 
-        // Move map to (0,0)
         mapGroup.setTranslateX(-bounds.getMinX());
         mapGroup.setTranslateY(-bounds.getMinY());
 
-        // Scale from top-left
         mapGroup.getTransforms().clear();
         mapGroup.getTransforms().add(
             new javafx.scene.transform.Scale(scale, scale, 0, 0)
         );
 
-        // 🔥 Center the map (new)
         double scaledWidth = bounds.getWidth() * scale;
         double scaledHeight = bounds.getHeight() * scale;
 
@@ -64,10 +67,15 @@ public class GameController {
 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/worldguesser/main.fxml"));
+
+        FXMLLoader loader =
+            new FXMLLoader(getClass().getResource("/worldguesser/main.fxml"));
+
         Scene scene = new Scene(loader.load());
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage =
+            (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         stage.setScene(scene);
     }
 }
