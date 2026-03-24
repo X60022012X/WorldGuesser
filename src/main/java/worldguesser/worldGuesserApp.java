@@ -13,13 +13,14 @@ public class WorldGuesserApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setTitle("World Guesser");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/worldguesser/main.fxml"));
+        Scene scene = new Scene(loader.load());
 
-        stage.setScene(
-            new Scene(
-                FXMLLoader.load(getClass().getResource("/worldguesser/WorldGuesser.fxml"))
-            )
-        );
+        stage.setTitle("World Guesser");
+        
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.setResizable(false);
 
         stage.show();
     }

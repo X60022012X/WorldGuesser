@@ -1,5 +1,6 @@
 package worldguesser;
 
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
@@ -44,11 +45,19 @@ public class SVGReader {
 
                 SVGPath shape = new SVGPath();
                 shape.setContent(d);
-                shape.setFill(Color.LIGHTGRAY);
+                shape.setFill(Color.BLACK);
                 shape.setStroke(Color.WHITE);
 
+                if(id.equals("large_masses_of_water")){
+                    shape.setFill(Color.CORNFLOWERBLUE);
+                }
+
                 idToShape.put(id, shape);
-                group.getChildren().add(shape);
+                Bounds b = shape.getBoundsInLocal();
+                if (b.getMinX() < 5000 && b.getMinY() < 5000) {
+                    group.getChildren().add(shape);
+                }
+                
             }
         } catch (Exception e) {
             throw new RuntimeException("Failed to load SVG", e);
