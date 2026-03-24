@@ -2,6 +2,8 @@ package worldguesser;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 
 public class Country {
 
@@ -28,6 +30,14 @@ public class Country {
         for (Shape s : shapes) {
             s.setFill(Color.RED);
         }
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
+
+        pause.setOnFinished(e -> {
+            reset();
+        });
+
+        pause.play();
     }
 
     public void reset() {
