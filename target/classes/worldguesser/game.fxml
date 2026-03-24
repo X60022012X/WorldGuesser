@@ -44,7 +44,8 @@
                         focusTraversable="false"
                         prefWidth="85.0"
                         prefHeight="38.0"
-                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;" />
+                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;"
+                        onAction="#resetGame" />
 
                 <Button fx:id="homeButton"
                         text="Home"
@@ -129,7 +130,8 @@
                             focusTraversable="false"
                             prefWidth="170.0"
                             prefHeight="52.0"
-                            style="-fx-font-size: 18px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;" />
+                            style="-fx-font-size: 18px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;"
+                            onAction="#tryAgain" />
                 </HBox>
             </VBox>
 
