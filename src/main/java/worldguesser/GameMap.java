@@ -14,9 +14,9 @@ public class GameMap {
     
     public GameMap(){
         reader = new SVGReader();
-        CreateCountries creater = new CreateCountries();
+        CreateCountries creator = new CreateCountries();
         idToShape = reader.getIdToShape();
-        countries = creater.createCountries(CountryData.idsByCountry, idToShape);
+        countries = creator.createCountries(CountryData.idsByCountry, idToShape);
         mapGroup = reader.getGroup();
     }
 
