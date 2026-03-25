@@ -7,7 +7,7 @@ import javafx.util.Duration;
 
 public class Country {
 
-    // FIELDS FOR THE NAME OF THE COUNTRY AND THE SHAPES THAT REPRESENT IT
+    // INITIALIZES THE NAME AND SHAPES OF THE COUNTRY
     private String name;
     private Shape[] shapes;
 
