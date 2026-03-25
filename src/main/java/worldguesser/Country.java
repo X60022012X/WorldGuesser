@@ -11,11 +11,13 @@ public class Country {
     private String name;
     private Shape[] shapes;
 
+
     // CONSTRUCTOR THAT INITIALIZES THE NAME AND SHAPES OF THE COUNTRY
     public Country(String name, Shape[] shapes) {
         this.name = name;
         this.shapes = shapes;
     }
+
 
     // SETS THE COLOR OF THE COUNTRY TO GREEN
     public void setCorrect() {
@@ -23,6 +25,7 @@ public class Country {
             s.setFill(Color.GREEN);
         }
     }
+
 
     // SETS THE COLOR OF THE COUNTRY TO RED FOR 0.5 SECONDS AND THEN RESETS IT BACK TO BLACK
     public void setWrong() {
@@ -40,6 +43,7 @@ public class Country {
         pause.play();
     }
 
+
     // RESETS THE COLOR OF THE COUNTRY TO BLACK
     public void reset() {
         for (Shape s : shapes) {
@@ -47,10 +51,12 @@ public class Country {
         }
     }
 
+
     // RETURNS THE NAME OF THE COUNTRY
     public String getName() {
         return name;
     }
+    
 
     // RETURNS ARRAY OF SHAPES THAT REPRESENT THE COUNTRY
     public Shape[] getShapes() {
