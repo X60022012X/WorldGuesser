@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Scale;
@@ -101,6 +102,18 @@ public class GameController {
         for (Country country : gameMap.getCountries()) {
             for (Shape shape : country.getShapes()) {
                 shape.setOnMouseClicked(event -> handleCountryClick(country));
+
+                shape.setOnMouseEntered(event -> {
+                    if (game.getRemainingCountries().contains(country)) {
+                        shape.setFill(Color.rgb(34, 63, 76));
+                    }
+                });
+
+                shape.setOnMouseExited(event -> {
+                    if (game.getRemainingCountries().contains(country)) {
+                        shape.setFill(Color.BLACK);
+                    }
+                });
             }
         }
     }
@@ -127,7 +140,7 @@ public class GameController {
         targetCountryLabel.setText("Find: " + country);
         attemptsLabel.setText("Attempts left: " + game.getAttempts());
         incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
-        countriesLabel.setText("Countries: " + (40 - game.getRemainingCountries()) + "/40" );
+        countriesLabel.setText("Countries: " + (40 - game.getRemainingCountriesSize()) + "/40" );
         timePenaltyLabel.setText("Time Penalty: " + game.getMisclicks()*5 + " s");
 
         double timeSpent = timer.getTimeSeconds();

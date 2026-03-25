@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
+            stylesheets="@style.css"
             fx:controller="worldguesser.GameController"
             prefWidth="500.0"
             prefHeight="750.0"
@@ -39,35 +40,21 @@
                 <Region HBox.hgrow="ALWAYS" />
 
                 <Button fx:id="resetButton"
+                        styleClass="customButton"
                         text="Reset"
                         mnemonicParsing="false"
                         focusTraversable="false"
                         prefWidth="85.0"
                         prefHeight="38.0"
-                        style="
-                            -fx-font-size: 14px;
-                            -fx-background-color: #FFBD59;
-                            -fx-background-radius: 5;
-                            -fx-border-color: black;
-                            -fx-border-radius: 5;
-                            -fx-border-width: 2;
-                        "
                         onAction="#resetGame" />
 
                 <Button fx:id="homeButton"
+                        styleClass="customButton"
                         text="Home"
                         mnemonicParsing="false"
                         focusTraversable="false"
                         prefWidth="85.0"
                         prefHeight="38.0"
-                        style="
-                            -fx-font-size: 14px;
-                            -fx-background-color: #FFBD59;
-                            -fx-background-radius: 5;
-                            -fx-border-color: black;
-                            -fx-border-radius: 5;
-                            -fx-border-width: 2;
-                        "
                         onAction="#goBack" />
             </HBox>
 
@@ -139,19 +126,12 @@
                 <!-- Bottom button -->
                 <HBox fx:id="bottomButtonBox" alignment="CENTER" visible="false" managed="false">
                     <Button fx:id="tryAgainButton"
+                            styleClass="customButton"
                             text="Try Again"
                             mnemonicParsing="false"
                             focusTraversable="false"
                             prefWidth="170.0"
                             prefHeight="52.0"
-                            style="
-                                -fx-font-size: 14px;
-                                -fx-background-color: #FFBD59;
-                                -fx-background-radius: 5;
-                                -fx-border-color: black;
-                                -fx-border-radius: 5;
-                                -fx-border-width: 2;
-                            "
                             onAction="#resetGame" />
                 </HBox>
             </VBox>
