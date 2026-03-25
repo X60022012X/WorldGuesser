@@ -4,6 +4,7 @@ import java.util.Map;
 
 public class CountryData {
     
+    // MAP THAT ASSOCIATES EACH COUNTRY NAME WITH AN ARRAY OF STRINGS REPRESENTING THE IDS OF THE SHAPES THAT MAKE UP THE COUNTRY
     public static final Map<String, String[]> idsByCountry = Map.ofEntries(
         Map.entry("Denmark", new String[] {"gl", "dk", "fo"}),
         Map.entry("Iceland", new String[] {"is"}),
