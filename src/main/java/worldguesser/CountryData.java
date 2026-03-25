@@ -46,6 +46,8 @@ public class CountryData {
         Map.entry("Germany", new String[] {"path5816"}),
         Map.entry("France", new String[] {"fr"}),
         Map.entry("Luxembourg", new String[] {"path5742"})
+
+        // UNUSED COUNTRIES BECAUSE THEY ARE TOO SMALL TO BE CLICKED ON
         //Map.entry("Malta", new String[] {"mt"}),
         //Map.entry("Andorra", new String[] {"ad"}),
         //Map.entry("Liechtenstein", new String[] {"li"}),

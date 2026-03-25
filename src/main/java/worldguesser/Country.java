@@ -44,7 +44,7 @@ public class Country {
     }
 
 
-    // RESETS THE COLOR OF THE COUNTRY TO BLACK
+    // GETTER FOR THE COLOR OF THE COUNTRY TO BLACK
     public void reset() {
         for (Shape s : shapes) {
             s.setFill(Color.BLACK);
@@ -52,13 +52,13 @@ public class Country {
     }
 
 
-    // RETURNS THE NAME OF THE COUNTRY
+    // GETTER FOR THE NAME OF THE COUNTRY
     public String getName() {
         return name;
     }
     
 
-    // RETURNS ARRAY OF SHAPES THAT REPRESENT THE COUNTRY
+    // GETTER FOR THE ARRAY OF SHAPES THAT REPRESENT THE COUNTRY
     public Shape[] getShapes() {
         return shapes;
     }

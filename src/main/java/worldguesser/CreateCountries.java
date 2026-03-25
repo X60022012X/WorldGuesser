@@ -11,7 +11,7 @@ public class CreateCountries {
     
 
     // CREATES COUNTRY OBJECTS BASED ON THE MAP OF COUNTRY NAMES TO SHAPE IDS AND THE MAP OF SHAPE IDS TO SHAPE OBJECTS
-    public ArrayList<Country> createCountries(Map<String, String[]> idsByCountry, Map<String, Shape> idToShape){
+    public CreateCountries(Map<String, String[]> idsByCountry, Map<String, Shape> idToShape){
         
         // ITERATES THROUGH THE MAP OF COUNTRY NAMES TO SHAPE IDS
         for (Map.Entry<String, String[]> entry : idsByCountry.entrySet()) {
@@ -27,10 +27,14 @@ public class CreateCountries {
                 shapes.add(idToShape.get(id));
             }
 
-            // CREATES A NEW COUNTRY OBJECT WITH THE NAME AND SHAPES AND ADDS IT TO THE ARRAYLIST OF COUNTRIES
+            // CREATES A NEW COUNTRY OBJECT WITH THE NAME AND SHAPES, AND ADD IT TO THE ARRAYLIST OF COUNTRIES
             countries.add(new Country(name, shapes.toArray(new Shape[0])));
         }
-        // RETURNS THE ARRAYLIST OF COUNTRY OBJECTS
+    }
+
+
+    // GETTER FOR THE ARRAYLIST OF COUNTRY OBJECTS
+    public ArrayList<Country> getCountries() {
         return countries;
     }
 }
