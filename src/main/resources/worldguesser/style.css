@@ -2,9 +2,10 @@
     -fx-font-size: 14px;
     -fx-background-color: #FFBD59;
     -fx-background-radius: 5;
-    -fx-border-color: black;
+    -fx-border-color: #000000;
     -fx-border-radius: 5;
     -fx-border-width: 2;
+    -fx-cursor: hand;
 }
 
 .customButton:hover {
@@ -13,8 +14,4 @@
 
 .customButton:pressed {
     -fx-background-color: #cc9444;
-}
-
-.customButton {
-    -fx-cursor: hand;
 }
