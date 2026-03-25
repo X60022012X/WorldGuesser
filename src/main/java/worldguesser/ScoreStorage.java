@@ -20,7 +20,7 @@ public class ScoreStorage {
     public void saveScore(Score score) {
         try {
             FileWriter writer = new FileWriter(file, true);
-            writer.write(score.toString() + "\n");
+            writer.write(score.toCSV() + "\n");
             writer.close();
         } catch (Exception e) {
             System.out.println("Error writing score to file: " + e);
