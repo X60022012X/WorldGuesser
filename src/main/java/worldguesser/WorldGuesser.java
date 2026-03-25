@@ -67,7 +67,11 @@ public class WorldGuesser {
         return currentCountry;
     }
 
-    public int getRemainingCountries() {
+    public ArrayList<Country> getRemainingCountries() {
+        return remainingCountries;
+    }
+
+    public int getRemainingCountriesSize() {
         return remainingCountries.size();
     }
 }
