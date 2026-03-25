@@ -10,7 +10,11 @@ Appen vi har lagd er en geografiquiz, hvor man må trykke på rett land på et k
 ## Refleksjon
 
 ### 1. Dekning av pensum
+Prosjektet vårt dekker flere viktige deler av pensum. Først og fremst har vi brukt objektorientert programmering, slik at programmet er delt opp i flere ulike klasser som representerer ulike deler av systemet. Eksempelvis representerer Country-objekter fra Country-klassen ulike land i spillet, mens WorldGuesser driver selve spillogikken. Slik modelleres systemet av objekter som både har tilstand og oppførsel.
 
+Programmet deles opp i ulike ansvarsområder til ulike klasser. For eksempel håndterer GameController brukergrensesnittet, mens Score har ansvar for å beregne resultat for runden basert på tid og bomklikk, og ScoreStorage lagrer de ulike filene i en csv-fil. Da blir koden i sin helhet mer oversiktlig og lett å vedlikeholde, noe som er viktig i objektorientert programmering.
+
+Programmet vårt har også benyttet ArrayLists, blant annet for å finne de beste tidene fra alle rundene som er lagret i csv-filen. Vi har også benyttet JUnit-tester for å teste noen av de viktigste delene av spillogikken, slik som håndtering av feilklikk, redusering av antall forsøk igjen og beregning av score fra runder. Vi utviklet også en grafisk applikasjon i JavaFX for appen vår. Dermed har vi vært innom mange viktige deler av pensum.
 
 ### 2. Mulig dekning av resten av pensum
 
