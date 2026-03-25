@@ -16,16 +16,15 @@ public class MisclicksIncreaseTest {
 
     @Test
     public void testWrongGuessIncreasesMisclicks() {
-        ArrayList<Country> testCountries = new ArrayList<>();
         Shape[] emptyShapes = new Shape[]{};
         Country testNorway = new Country("Norway", emptyShapes);
         Country testSweden = new Country("Sweden", emptyShapes);
 
+        ArrayList<Country> testCountries = new ArrayList<>();
         testCountries.add(testNorway);
         testCountries.add(testSweden);
 
         WorldGuesser testGame = new WorldGuesser(testCountries);
-
         if (testGame.getCurrentCountry() == testNorway) {
             testGame.handleClick(testSweden);
         } else if (testGame.getCurrentCountry() == testSweden) {
