@@ -1,8 +1,10 @@
 package worldguesser;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 
 public class GameMap {
@@ -17,6 +19,11 @@ public class GameMap {
         CreateCountries creator = new CreateCountries();
         idToShape = reader.getIdToShape();
         countries = creator.createCountries(CountryData.idsByCountry, idToShape);
+        for(Country country : countries){
+            for(Shape shape : country.getShapes()){
+                shape.setFill(Color.BLACK);
+            }      
+        }
         mapGroup = reader.getGroup();
     }
 

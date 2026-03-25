@@ -45,7 +45,7 @@ public class SVGReader {
 
                 SVGPath shape = new SVGPath();
                 shape.setContent(d);
-                shape.setFill(Color.BLACK);
+                shape.setFill(Color.GRAY);
                 shape.setStroke(Color.WHITE);
 
                 if(id.equals("large_masses_of_water")){
