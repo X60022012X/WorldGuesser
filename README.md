@@ -9,7 +9,13 @@ Appen vi har lagd er en geografiquiz, hvor man må trykke på rett land på et k
 
 ## Refleksjon
 
-### Dekning av pensum
+### 1. Dekning av pensum
+
+
+### Mulig dekning av resten av pensum
+
+
+
 
 ## KI Deklarasjon
 
