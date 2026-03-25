@@ -10,7 +10,9 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Scale;
@@ -34,6 +36,9 @@ public class GameController {
     private Label targetCountryLabel;
 
     @FXML
+    private Label timePenaltyLabel;
+
+    @FXML
     private Label timeLabel;
 
     @FXML
@@ -50,6 +55,12 @@ public class GameController {
 
     @FXML
     private Label totalTimeLabel;
+
+    @FXML
+    private VBox resultBox;
+
+    @FXML
+    private HBox bottomButtonBox;
 
     @FXML
     public void initialize() {
@@ -106,6 +117,7 @@ public class GameController {
             Score score = new Score(Math.round(timer.getTimeSeconds()*10)/10.0, game.getMisclicks());
             scoreStorage.saveScore(score);
             updateUI("");
+            showResults();
         } else{
             updateUI(game.getCurrentCountry().getName());
         }
@@ -116,6 +128,7 @@ public class GameController {
         attemptsLabel.setText("Attempts left: " + game.getAttempts());
         incorrectsLabel.setText("Incorrects: " + game.getMisclicks());
         countriesLabel.setText("Countries: " + (40 - game.getRemainingCountries()) + "/40" );
+        timePenaltyLabel.setText("Time Penalty: " + game.getMisclicks()*5 + " s");
 
         double timeSpent = timer.getTimeSeconds();
         timeLabel.setText(String.format("Time: %.1f s", timeSpent));
@@ -140,7 +153,7 @@ public class GameController {
             paneHeight / bounds.getHeight()
         );
 
-        scale *= 1.02;
+        scale *= 1.04;
 
         mapGroup.getTransforms().clear();
         mapGroup.getTransforms().add(new Scale(scale, scale, 0, 0));
@@ -155,6 +168,14 @@ public class GameController {
         mapGroup.setTranslateY(offsetY + (paneHeight - scaledHeight) / 2);
     }
 
+    private void showResults() {
+        resultBox.setVisible(true);
+        resultBox.setManaged(true);
+
+        bottomButtonBox.setVisible(true);
+        bottomButtonBox.setManaged(true);
+    }
+
     @FXML
     private void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/worldguesser/main.fxml"));
@@ -165,18 +186,18 @@ public class GameController {
     }
 
     @FXML
-    private void resetGame(ActionEvent event) {
-        game = new WorldGuesser(gameMap.getCountries());
-        for (Country country : gameMap.getCountries()) {
-            country.reset();
+    private void resetGame(ActionEvent event) throws IOException {
+        if (timerUpdater != null) {
+            timerUpdater.stop();
         }
-        timer = new Timer();
-        timer.start();
-        updateUI(game.getCurrentCountry().getName());
-    }
+        if (timer != null) {
+            timer.stop();
+        }
 
-    @FXML
-    private void tryAgain(ActionEvent event) {
-        System.out.println("Try Again pressed");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/worldguesser/game.fxml"));
+        Scene scene = new Scene(loader.load());
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
     }
 }

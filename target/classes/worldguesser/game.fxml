@@ -44,7 +44,14 @@
                         focusTraversable="false"
                         prefWidth="85.0"
                         prefHeight="38.0"
-                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;"
+                        style="
+                            -fx-font-size: 14px;
+                            -fx-background-color: #FFBD59;
+                            -fx-background-radius: 5;
+                            -fx-border-color: black;
+                            -fx-border-radius: 5;
+                            -fx-border-width: 2;
+                        "
                         onAction="#resetGame" />
 
                 <Button fx:id="homeButton"
@@ -53,7 +60,14 @@
                         focusTraversable="false"
                         prefWidth="85.0"
                         prefHeight="38.0"
-                        style="-fx-font-size: 14px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;"
+                        style="
+                            -fx-font-size: 14px;
+                            -fx-background-color: #FFBD59;
+                            -fx-background-radius: 5;
+                            -fx-border-color: black;
+                            -fx-border-radius: 5;
+                            -fx-border-width: 2;
+                        "
                         onAction="#goBack" />
             </HBox>
 
@@ -99,7 +113,7 @@
                 </HBox>
 
                 <!-- Result section -->
-                <VBox spacing="6.0">
+                <VBox fx:id="resultBox" spacing="6.0" visible="false" managed="false">
                     <Label text="Result:"
                            style="-fx-font-size: 22px;" />
 
@@ -111,8 +125,8 @@
                            text="Time spent: 40s"
                            style="-fx-font-size: 18px;" />
 
-                    <Label fx:id="incorrectLabel"
-                           text="Incorrects: 15s"
+                    <Label fx:id="timePenaltyLabel"
+                           text="Time penalty: 15s"
                            style="-fx-font-size: 18px;" />
 
                     <Label fx:id="totalTimeLabel"
@@ -123,15 +137,22 @@
                 <Region VBox.vgrow="ALWAYS" />
 
                 <!-- Bottom button -->
-                <HBox alignment="CENTER">
+                <HBox fx:id="bottomButtonBox" alignment="CENTER" visible="false" managed="false">
                     <Button fx:id="tryAgainButton"
                             text="Try Again"
                             mnemonicParsing="false"
                             focusTraversable="false"
                             prefWidth="170.0"
                             prefHeight="52.0"
-                            style="-fx-font-size: 18px; -fx-background-color: #a9a9a9; -fx-background-radius: 0;"
-                            onAction="#tryAgain" />
+                            style="
+                                -fx-font-size: 14px;
+                                -fx-background-color: #FFBD59;
+                                -fx-background-radius: 5;
+                                -fx-border-color: black;
+                                -fx-border-radius: 5;
+                                -fx-border-width: 2;
+                            "
+                            onAction="#resetGame" />
                 </HBox>
             </VBox>
 

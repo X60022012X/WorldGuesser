@@ -18,8 +18,6 @@ public class WorldGuesser {
         int index = (int)(Math.random() * remainingCountries.size());
         currentCountry = remainingCountries.get(index);
         attempts = 3;
-
-        System.out.println("Find: " + currentCountry.getName());  //REMOVE BEFORE FLIGHT
     }
 
     public boolean handleClick(Country clicked) {
