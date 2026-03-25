@@ -1,6 +1,6 @@
 package worldguesser;
 
-public class Score {
+public class Score implements ForcedInterface {
 
     private final double totalSeconds;
     private final double timeSeconds;
@@ -26,6 +26,11 @@ public class Score {
 
     @Override
     public String toString() {
+        return totalSeconds + "," + timeSeconds + "," + misclicks;
+    }
+
+    @Override
+    public String toCSV() {
         return totalSeconds + "," + timeSeconds + "," + misclicks;
     }
 }
