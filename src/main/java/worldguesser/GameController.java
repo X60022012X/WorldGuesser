@@ -190,6 +190,15 @@ public class GameController {
     }
 
     @FXML
+    private Label score1Label;
+
+    @FXML
+    private Label score2Label;
+
+    @FXML
+    private Label score3Label;
+
+    @FXML
     private void goBack(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/worldguesser/main.fxml"));
         Scene scene = new Scene(loader.load());
