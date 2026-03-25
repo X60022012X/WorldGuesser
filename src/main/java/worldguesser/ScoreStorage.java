@@ -8,8 +8,11 @@ import java.io.FileWriter;
 
 public class ScoreStorage {
     
+    // INITIALIZES THE FILE PATH FOR THE SCORE STORAGE
     private String file;
 
+
+    // CONSTRUCTOR THAT INITIALIZES THE FILE PATH FOR THE SCORE STORAGE
     public ScoreStorage(String file) {
         this.file = file;
     }
@@ -24,8 +27,7 @@ public class ScoreStorage {
         }
     }
 
-    public ArrayList<Double> topFiveScores() {
-
+    public ArrayList<Double> loadScores() {
         ArrayList<Double> scores = new ArrayList<>();
 
         try {
@@ -47,6 +49,13 @@ public class ScoreStorage {
         } catch (Exception e) {
             System.out.println("Error reading score from file: " + e);
         }
+        return scores;
+    }
+
+
+    public ArrayList<Double> topFiveScores() {
+
+        ArrayList<Double> scores = loadScores();
 
         Collections.sort(scores);
 
