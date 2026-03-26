@@ -17,16 +17,23 @@ public class ScoreStorage {
         this.file = file;
     }
 
+
+    // SAVES A SCORE TO THE FILE BY APPENDING IT TO THE END OF THE FILE
     public void saveScore(Score score) {
+        // TRY TO OPEN THE FILE FOR WRITING, AND CATCH ANY EXCEPTIONS THAT OCCUR
         try {
+            // OPENS THE FILE FOR WRITING IN APPEND MODE, WRITES THE SCORE TO THE FILE IN CSV FORMAT
             FileWriter writer = new FileWriter(file, true);
             writer.write(score.toCSV() + "\n");
             writer.close();
+
+        // IF AN EXCEPTION OCCURS, PRINT AN ERROR MESSAGE
         } catch (Exception e) {
             System.out.println("Error writing score to file: " + e);
         }
     }
 
+    // 
     public ArrayList<Double> loadScores() {
         ArrayList<Double> scores = new ArrayList<>();
 
