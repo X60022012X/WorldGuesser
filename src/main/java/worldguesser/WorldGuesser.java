@@ -41,7 +41,6 @@ public class WorldGuesser {
             return false;
         }
 
-        // wrong click
         clicked.setWrong();
 
         misclicks++;
@@ -55,22 +54,31 @@ public class WorldGuesser {
     }
 
 
+    // GETTER FOR THE MISCLICKS
     public int getMisclicks() {
         return misclicks;
     }
 
+
+    // GETTER FOR THE ATTEMPTS
     public int getAttempts() {
         return attempts;
     }
 
+
+    // GETTER FOR THE CURRENT COUNTRY
     public Country getCurrentCountry() {
         return currentCountry;
     }
 
+
+    // GETTER FOR THE REMAINING COUNTRIES
     public ArrayList<Country> getRemainingCountries() {
         return remainingCountries;
     }
 
+
+    // GETTER FOR THE AMOUNT OF REMAINING COUNTRIES
     public int getRemainingCountriesSize() {
         return remainingCountries.size();
     }

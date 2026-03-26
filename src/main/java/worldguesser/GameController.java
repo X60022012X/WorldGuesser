@@ -128,7 +128,7 @@ public class GameController {
             timer.stop();
             timerUpdater.stop();
             Score score = new Score(Math.round(timer.getTimeSeconds()*10)/10.0, game.getMisclicks());
-            scoreStorage.saveScore(score);
+            scoreStorage.writeScoreToCsv(score);
             updateUI("");
             showResults();
         } else{

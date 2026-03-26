@@ -24,7 +24,7 @@ public class HighscoreController {
     public void initialize() {
         ScoreStorage storage = new ScoreStorage("allScores.csv");
  
-        ArrayList<Double> scores = storage.topFiveScores();
+        ArrayList<Double> scores = storage.getTopFiveScores();
         updateScores(scores);
     }
 

@@ -15,11 +15,11 @@ public class ScoreStorageTest {
 
         ScoreStorage storage = new ScoreStorage(testFile);
 
-        storage.saveScore(new Score(20,0));
-        storage.saveScore(new Score(30,0));
-        storage.saveScore(new Score(10,0));
+        storage.writeScoreToCsv(new Score(20,0));
+        storage.writeScoreToCsv(new Score(30,0));
+        storage.writeScoreToCsv(new Score(10,0));
 
-        ArrayList<Double> scores = storage.topFiveScores();
+        ArrayList<Double> scores = storage.getTopFiveScores();
 
         assertEquals(10.0, scores.get(0));
 
