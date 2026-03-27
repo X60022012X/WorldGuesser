@@ -29,6 +29,8 @@ public class Country {
 
     // SETS THE COLOR OF THE COUNTRY TO RED FOR 0.5 SECONDS AND THEN RESETS IT BACK TO BLACK
     public void setWrong() {
+
+        // SETS THE COLOR OF THE COUNTRY TO RED
         for (Shape s : shapes) {
             s.setFill(Color.RED);
         }

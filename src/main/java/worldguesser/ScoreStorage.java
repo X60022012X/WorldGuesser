@@ -24,6 +24,8 @@ public class ScoreStorage {
 
     // LOADS THE SCORES FROM THE FILE AND RETURNS THEM AS AN ARRAYLIST OF DOUBLES
     private ArrayList<Double> getScoreFromCsv() {
+
+        // CREATES AN ARRAYLIST TO HOLD THE SCORES
         ArrayList<Double> scores = new ArrayList<>();
 
         // TRY TO OPEN THE FILE FOR READING, AND CATCH ANY EXCEPTIONS THAT OCCUR
@@ -86,6 +88,7 @@ public class ScoreStorage {
 
     // SAVES A SCORE TO THE FILE BY APPENDING IT TO THE END OF THE FILE
     public void writeScoreToCsv(Score score) {
+
         // TRY TO OPEN THE FILE FOR WRITING, AND CATCH ANY EXCEPTIONS THAT OCCUR
         try {
             // OPENS THE FILE FOR WRITING IN APPEND MODE, WRITES THE SCORE TO THE FILE IN CSV FORMAT

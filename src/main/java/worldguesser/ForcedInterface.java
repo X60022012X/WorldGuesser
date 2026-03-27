@@ -1,5 +1,8 @@
 package worldguesser;
 
+// THIS INTERFACE FORCES THE IMPLEMENTING CLASS TO HAVE A METHOD TO CONVERT THE OBJECT TO A CSV STRING
 public interface ForcedInterface {
+
+    // METHOD TO CONVERT THE OBJECT TO A CSV STRING
     String toCSV();
 }
