@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
+// ANCHOR PANE AS THE ROOT CONTAINER FOR THE HIGHSCORE SCENE, WITH A BACKGROUND COLOR AND A CONTROLLER CLASS
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="worldguesser.HighscoreController"
             prefWidth="500.0"
@@ -14,19 +15,27 @@
             style="-fx-background-color: #efcf93;"
             stylesheets="@style.css">
 
+    // THE MAIN CONTAINER FOR THE HIGHSCORE SCENE
     <children>
+
+        // VBOX CONTAINING ALL ELEMENTS OF THE HIGHSCORE SCENE,
         <VBox spacing="25.0"
               AnchorPane.topAnchor="20.0"
               AnchorPane.leftAnchor="22.0"
               AnchorPane.rightAnchor="22.0"
               AnchorPane.bottomAnchor="20.0">
 
+            // HBOX CONTAINING THE TITLE AND THE HOME BUTTON
             <HBox alignment="CENTER_LEFT">
+
+                // LABEL DISPLAYING THE TITLE OF THE HIGHSCORE SCENE
                 <Label text="Best times:"
                        style="-fx-font-size: 24px; -fx-text-fill: black;" />
 
+                // REGION TO PUSH THE HOME BUTTON TO THE RIGHT SIDE OF THE HBOX
                 <Region HBox.hgrow="ALWAYS" />
 
+                // HOME BUTTON WITH ACTION TO GO BACK TO THE MAIN MENU
                 <Button fx:id="homeButton"
                         styleClass="customButton"
                         text="Home"
@@ -37,6 +46,7 @@
                         onAction="#goBack" />
             </HBox>
 
+            // VBOX TO DISPLAY THE HIGHSCORE ENTRIES, WITH SPACING BETWEEN THEM AND ALIGNMENT TO THE TOP LEFT
             <VBox fx:id="scoreBox"
                   spacing="10.0"
                   alignment="TOP_LEFT" />

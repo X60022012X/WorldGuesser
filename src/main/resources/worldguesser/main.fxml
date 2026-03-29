@@ -5,30 +5,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
+// VBOX AS THE ROOT CONTAINER FOR THE MAIN MENU SCENE, WITH A CONTROLLER CLASS AND STYLESHEET
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="worldguesser.MainController"
       alignment="CENTER"
       spacing="30"
       prefWidth="500.0"
       prefHeight="750.0">
-
+    
+    // THE MAIN CONTAINER FOR THE MAIN MENU SCENE
     <children>
 
+        // LABEL DISPLAYING THE TITLE OF THE GAME
         <Label text="WorldGuesser"
                style="-fx-font-size: 60px; -fx-font-weight: bold;" />
 
+        // PLAY BUTTON WITH ACTION TO SHOW THE GAME SCENE
         <Button text="Play"
                 focusTraversable="false"
                 prefWidth="200"
                 prefHeight="50"
                 onAction="#showGame"/>
 
+        // HIGHSCORE BUTTON WITH ACTION TO SHOW THE HIGHSCORE SCENE
         <Button text="Highscore"
                 focusTraversable="false"
                 prefWidth="200"
                 prefHeight="50"
                 onAction="#showHighscore"/>
-
     </children>
-
 </VBox>
