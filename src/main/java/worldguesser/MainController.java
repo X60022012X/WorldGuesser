@@ -24,6 +24,10 @@ public class MainController {
         // GETS THE CURRENT STAGE AND SETS THE NEW SCENE TO IT
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+
+        // FIT THE MAP TO THE PANE
+        GameController controller = loader.getController();
+        controller.afterSceneIsSet();
     }
 
 

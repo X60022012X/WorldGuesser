@@ -14,11 +14,9 @@
 
     <children>
 
-        <!-- Title -->
         <Label text="WorldGuesser"
                style="-fx-font-size: 60px; -fx-font-weight: bold;" />
 
-        <!-- Buttons -->
         <Button text="Play"
                 focusTraversable="false"
                 prefWidth="200"
