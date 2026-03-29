@@ -27,4 +27,4 @@ Programmet vårt har også benyttet ArrayLists, blant annet for å finne de best
 
 
 ## KI Deklarasjon
-
+Vi har hovedsakelig brukt KI som et søkeverktøy, som et alternativ til kilder som W3Schools, GeeksforGeeks, Stack Overflow og Reddit. Vi brukte også VsCodes Copilot som et hjelpemiddel når vi skulle kommentere koden.
