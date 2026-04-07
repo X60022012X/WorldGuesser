@@ -27,4 +27,4 @@ Programmet vårt har også benyttet ArrayLists, blant annet for å finne de best
 
 
 ## KI Deklarasjon
-Vi har hovedsakelig brukt KI som et søkeverktøy, som et alternativ til kilder som W3Schools, GeeksforGeeks, Stack Overflow og Reddit. Vi brukte også VsCodes Copilot som et hjelpemiddel når vi skulle kommentere koden.
+Vi har hovedsakelig brukt KI som et søkeverktøy, som et alternativ til kilder som W3Schools, GeeksforGeeks, Stack Overflow og Reddit. Bruken av KI var i stor grad knyttet til deler av prosjektet som falt utenfor emnets pensum, i dette arbeidet benyttet vi primært språkmodellen ChatGPT. I tillegg brukte vi også Copilot som et hjelpemiddel for å kommenetere koden.

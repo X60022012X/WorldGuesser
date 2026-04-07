@@ -1,3 +1,4 @@
+/* STYLE FOR CUSTOM BUTTON */
 .customButton {
     -fx-font-size: 14px;
     -fx-background-color: #FFBD59;
@@ -8,10 +9,12 @@
     -fx-cursor: hand;
 }
 
+/* HOVER STATE FOR CUSTOM BUTTON */
 .customButton:hover {
     -fx-background-color: #e6a94d;
 }
 
+/* PRESSED STATE FOR CUSTOM BUTTON */
 .customButton:pressed {
     -fx-background-color: #cc9444;
 }
