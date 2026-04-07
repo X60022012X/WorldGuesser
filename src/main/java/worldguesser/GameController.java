@@ -332,5 +332,8 @@ public class GameController {
         // GETS THE CURRENT STAGE AND SETS THE NEW SCENE TO IT
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
+
+        GameController controller = loader.getController();
+        controller.afterSceneIsSet();
     }
 }
