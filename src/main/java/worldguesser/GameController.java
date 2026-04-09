@@ -333,6 +333,7 @@ public class GameController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
 
+        // FIT THE MAP TO THE PANE
         GameController controller = loader.getController();
         controller.afterSceneIsSet();
     }
